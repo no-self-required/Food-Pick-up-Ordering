@@ -15,23 +15,10 @@ module.exports = (db) => {
     db.query(`SELECT * FROM menu_items;`)
       .then(data => {
         const menu = data.rows;
-        res.json({ menu });
-        //res.write('HELLO!');
-        // res.send('HELLO!');
+        // res.json({ menu });
+        res.read(menu);
       })
       .catch(err => { res.send(err.message) });
-    //res.write('<h1>HELLO!!! THIS IS USER PAGE<h1>')
   });
-
-  // router.get('/order-confirmation', (req, res) => {
-  //   db.query(`SELECT * FROM menu_items;`)
-  //     .then(data => {
-  //       const menu = data.rows;
-  //       res.json({ menu });
-  //       res.send(menu);
-  //     })
-  //     .catch(err => { res.send(err.message) });
-  // });
-
   return router;
 };

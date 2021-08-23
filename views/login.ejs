@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Home Page</title>
+    <title>Log in</title>
 
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
@@ -18,26 +18,21 @@
 
 
   <body>
+    <form id="login-form" class="login-form">
+      <p>Log in</p>
 
-    <main id="main-content">
+      <div class="loginForm_wrapper">
+        <input type="text" name="name" placeholder="Name">
+      </div>
 
-    </main>
-<!--
-    <script src="/network.js"></script>
-    <script src="/public/views_manager.js"></script>
-    <script src="/public/index.js"></script> -->
+      <div class="loginForm_wrapper">
+        <input type="text" name="phoneNumber" placeholder="Phone number">
+      </div>
 
-    <!-- <script src="/public/scripts/header.js"></script> -->
-    <!-- <script src="/public/scripts/login_form.js"></script> -->
-
-    <!-- <script src="/public/scripts/order_form.js"></script>
-    <script src="/public/scripts/order_status.js"></script> -->
-
-    <div id="container">
-      <div id="menu"></div>
-      <div id="cart"><ul></ul></div>
-    </div>
-
+      <div class="loginForm_wrapper">
+        <button>View order</button>
+      </div>
+</form>
 
   </body>
 </html>

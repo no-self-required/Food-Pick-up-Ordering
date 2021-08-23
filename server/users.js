@@ -6,6 +6,7 @@
  */
 
 const express = require('express');
+//const { restart } = require('nodemon');
 const router  = express.Router();
 
 module.exports = (db) => {
@@ -18,6 +19,5 @@ module.exports = (db) => {
       })
       .catch(err => { res.send(err.message) });
   });
-
   return router;
 };

@@ -1,5 +1,5 @@
-$(() => {
 
+$(() => {
 
   function createMenu(menu_items) {
     return `
@@ -15,4 +15,13 @@ $(() => {
       </article>
     `
   }
+
+  $.ajax('/users', {
+      method: 'GET'
+    })
+    .then(function (menu) {
+      for (let item of menu) {
+        $('#menu').append(createMenu(item));
+      }
+    });
 });

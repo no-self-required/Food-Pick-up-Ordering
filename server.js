@@ -2,16 +2,18 @@
 require('dotenv').config();
 
 // Web server config
-const PORT       = process.env.PORT || 8080;
-const ENV        = process.env.ENV || "development";
-const express    = require("express");
+const PORT = process.env.PORT || 8080;
+const ENV = process.env.ENV || "development";
+const express = require("express");
 const bodyParser = require("body-parser");
-const sass       = require("node-sass-middleware");
-const app        = express();
-const morgan     = require('morgan');
+const sass = require("node-sass-middleware");
+const app = express();
+const morgan = require('morgan');
 
 // PG database client/connection setup
-const { Pool } = require('pg');
+const {
+  Pool
+} = require('pg');
 const dbParams = require('./lib/db.js');
 const db = new Pool(dbParams);
 db.connect();
@@ -22,7 +24,9 @@ db.connect();
 app.use(morgan('dev'));
 
 app.set("view engine", "ejs");
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 app.use("/styles", sass({
   src: __dirname + "/styles",
   dest: __dirname + "/public/styles",
@@ -49,7 +53,18 @@ app.use("/order-confirmation", orderRoutes(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  res.render("index");
+  // db.query(`SELECT * FROM menu_items;`)
+  //   .then(data => {
+  //     const menu = data.rows;
+  //     res.render("index", {
+  //       menu
+  //     });
+  //   })
+  //   .catch(err => {
+  //     res.send(err.message)
+  //   });
+  res.render('index');
+
 });
 
 app.listen(PORT, () => {

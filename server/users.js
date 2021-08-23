@@ -14,8 +14,7 @@ module.exports = (db) => {
     db.query(`SELECT * FROM menu_items;`)
       .then(data => {
         const menu = data.rows;
-        // res.json({ menu });
-        res.read(menu);
+        res.json(menu);
       })
       .catch(err => { res.send(err.message) });
   });

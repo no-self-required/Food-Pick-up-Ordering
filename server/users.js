@@ -11,26 +11,14 @@ const router  = express.Router();
 module.exports = (db) => {
 
   router.get('/', (req, res) => {
-    // db.query(`SELECT * FROM menu_items;`)
-    //   .then(data => {
-    //     const menu = data.rows;
-    //     res.json({ menu });
-    //     res.write('HELLO!');
-    //     // res.send('HELLO!');
-    //   })
-    //   .catch(err => { res.send(err.message) });
-    res.write('HELLO!!! THIS IS USER PAGE')
+    db.query(`SELECT * FROM menu_items;`)
+      .then(data => {
+        const menu = data.rows;
+        // res.json({ menu });
+        res.read(menu);
+      })
+      .catch(err => { res.send(err.message) });
   });
-
-  // router.get('/order-confirmation', (req, res) => {
-  //   db.query(`SELECT * FROM menu_items;`)
-  //     .then(data => {
-  //       const menu = data.rows;
-  //       res.json({ menu });
-  //       res.send(menu);
-  //     })
-  //     .catch(err => { res.send(err.message) });
-  // });
 
   return router;
 };

@@ -23,8 +23,9 @@ module.exports = (db) => {
   });
 
   router.post('/', (req, res) => {
-    db.query(`SELECT * FROM menu_items WHERE menu_item.id = $1`, [req.body.menuID])
-    console.log('------------post request from menu listing js file: ', req.body);
+    // db.query(`SELECT * FROM menu_items WHERE menu_item.id = $1`, [req.body.menuID])
+    // .then(data => res.send(data.rows));
+    console.log('------------post request from menu listing js file: ', req.body.menuID);
   });
 
 

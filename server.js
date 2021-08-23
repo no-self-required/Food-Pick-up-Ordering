@@ -11,9 +11,7 @@ const app = express();
 const morgan = require('morgan');
 
 // PG database client/connection setup
-const {
-  Pool
-} = require('pg');
+const { Pool } = require('pg');
 const dbParams = require('./lib/db.js');
 const db = new Pool(dbParams);
 db.connect();
@@ -27,6 +25,7 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({
   extended: true
 }));
+app.use(bodyParser.json());
 app.use("/styles", sass({
   src: __dirname + "/styles",
   dest: __dirname + "/public/styles",
@@ -39,7 +38,8 @@ app.use(express.static("public"));
 // Note: Feel free to replace the example routes below with your own
 // const widgetsRoutes = require("./routes/widgets");
 const usersRoutes = require("./server/users.js");
-const orderRoutes = require("./server/api");
+const orderRoutes = require("./server/order-confirmation.js");
+const loginRoutes = require("./server/login-page.js");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -47,22 +47,13 @@ const orderRoutes = require("./server/api");
 // app.use("/api/widgets", widgetsRoutes(db));
 app.use("/users", usersRoutes(db));
 app.use("/order-confirmation", orderRoutes(db));
+app.use("/login", loginRoutes(db));
 // Note: mount other resources here, using the same pattern above
 
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  // db.query(`SELECT * FROM menu_items;`)
-  //   .then(data => {
-  //     const menu = data.rows;
-  //     res.render("index", {
-  //       menu
-  //     });
-  //   })
-  //   .catch(err => {
-  //     res.send(err.message)
-  //   });
   res.render('index');
 
 });

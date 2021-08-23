@@ -14,8 +14,6 @@ $(() => {
     `
   }
 
-  window.orderList.createOrder = createOrder;
-
 });
 
 // (id, client_id, menu_item_id, order_time, prep_time, note, is_paid, total_price, order_status)

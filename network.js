@@ -1,7 +1,6 @@
-function logIn(data) {
+function getAllMenu() {
   return $.ajax({
-    method: "POST",
-    url: "/",
-    data
+    method: "GET",
+    url: "/users"
   });
 }

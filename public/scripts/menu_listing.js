@@ -1,4 +1,11 @@
+<<<<<<< HEAD
    function createMenu(menu_items) {
+=======
+
+$(() => {
+
+  function createMenu(menu_items) {
+>>>>>>> 00fba29daa1279f8e4c4f98e68d811e5aabfdb1d
     return `
       <article class="menu-listing">
         <section class="menu-listing_image">
@@ -13,5 +20,17 @@
     `
   }
 
+<<<<<<< HEAD
 
 exports.createMenu = createMenu;
+=======
+  $.ajax('/users', {
+      method: 'GET'
+    })
+    .then(function (menu) {
+      for (let item of menu) {
+        $('#menu').append(createMenu(item));
+      }
+    });
+});
+>>>>>>> 00fba29daa1279f8e4c4f98e68d811e5aabfdb1d

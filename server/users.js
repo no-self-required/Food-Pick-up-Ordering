@@ -8,10 +8,12 @@
 const express = require('express');
 //const { restart } = require('nodemon');
 const router  = express.Router();
+const cookieSession = require('cookie-session');
 
 module.exports = (db) => {
 
   router.get('/', (req, res) => {
+
     db.query(`SELECT * FROM menu_items;`)
       .then(data => {
         const menu = data.rows;
@@ -19,5 +21,12 @@ module.exports = (db) => {
       })
       .catch(err => { res.send(err.message) });
   });
+
+  router.post('/', (req, res) => {
+    db.query(`SELECT * FROM menu_items WHERE menu_item.id = $1`, [req.body.menuID])
+    console.log('------------post request from menu listing js file: ', req.body);
+  });
+
+
   return router;
 };

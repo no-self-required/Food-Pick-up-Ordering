@@ -6,20 +6,21 @@
  */
 
 const express = require('express');
+//const { restart } = require('nodemon');
 const router  = express.Router();
 
 module.exports = (db) => {
 
   router.get('/', (req, res) => {
-    // db.query(`SELECT * FROM menu_items;`)
-    //   .then(data => {
-    //     const menu = data.rows;
-    //     res.json({ menu });
-    //     res.write('HELLO!');
-    //     // res.send('HELLO!');
-    //   })
-    //   .catch(err => { res.send(err.message) });
-    res.write('HELLO!!! THIS IS USER PAGE')
+    db.query(`SELECT * FROM menu_items;`)
+      .then(data => {
+        const menu = data.rows;
+        res.json({ menu });
+        //res.write('HELLO!');
+        // res.send('HELLO!');
+      })
+      .catch(err => { res.send(err.message) });
+    //res.write('<h1>HELLO!!! THIS IS USER PAGE<h1>')
   });
 
   // router.get('/order-confirmation', (req, res) => {

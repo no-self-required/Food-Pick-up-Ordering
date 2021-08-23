@@ -1,7 +1,4 @@
-$(() => {
-
-
-  function createMenu(menu_items) {
+   function createMenu(menu_items) {
     return `
       <article class="menu-listing">
         <section class="menu-listing_image">
@@ -15,4 +12,6 @@ $(() => {
       </article>
     `
   }
-});
+
+
+exports.createMenu = createMenu;

@@ -4,6 +4,7 @@
  *   these routes are mounted onto /users
  * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
  */
+const createMenu = require("./public/scripts/menu_listing.js");
 
 const express = require('express');
 const router  = express.Router();
@@ -14,8 +15,8 @@ module.exports = (db) => {
     db.query(`SELECT * FROM menu_items;`)
       .then(data => {
         const menu = data.rows;
-        // res.json({ menu });
-        res.read(menu);
+        console.log("menu: ", typeof menu)
+        res.send(createMenu(menu))
       })
       .catch(err => { res.send(err.message) });
   });

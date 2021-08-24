@@ -28,10 +28,9 @@ $(() => {
     });
   }
 
-
   $('#menu').on('click', '.menu-listing', function () {
 
-    console.log('WHAT IS THIS--------------', $(this).attr("data-id"));
+    console.log($(this).attr("data-id"));
     let menuID = $(this).attr("data-id");
 
     let cart = sessionStorage.getItem('myCart');
@@ -42,25 +41,12 @@ $(() => {
     }
     cart.push(parseInt(menuID));
     sessionStorage.setItem('myCart', JSON.stringify(cart));
-<<<<<<< HEAD
-    $('#cart').append(cart[]);
-
-    $.post("/users", {menuID}, function (data) {
-      console.log('----DATA', menuID);
-    })
-=======
-    // console.log(cart[0]);
-    // for (const item of cart) {
-    //   console.log();
-    // }
-    // $('#cart').append(cart.length);
 
     $.post("/users", { menuID }, function (data) {
       console.log('----DATA', data);
+      $('#cart').append(data);
     });
 
-
->>>>>>> 9710da69908188edd1929b5a834aee7d84ddd882
   })
 
   loadMenu();

@@ -21,40 +21,34 @@ $(() => {
       for (let item of menu) {
         $('#menu').append(createMenu(item));
       }
+    })
+    .catch(err => {
+      res.status(500)
+      .json({ error: err.message });
     });
-<<<<<<< HEAD
-
-    $('.menu-listing').on('click'(function() {
-      $('#cart').append('hello')
-    }))
-=======
   }
 
 
   $('#menu').on('click', '.menu-listing', function () {
 
-    console.log($(this).attr("data-id"));
+    console.log('WHAT IS THIS--------------', $(this).attr("data-id"));
     let menuID = $(this).attr("data-id");
 
     let cart = sessionStorage.getItem('myCart');
     if (!cart) {
       cart = [];
-
     } else {
       cart = JSON.parse(cart);
     }
     cart.push(parseInt(menuID));
     sessionStorage.setItem('myCart', JSON.stringify(cart));
-    $('#cart').text(cart.length);
+    $('#cart').append(cart[]);
 
     $.post("/users", {menuID}, function (data) {
-      console.log('----DATA', data);
-    });
-
-
+      console.log('----DATA', menuID);
+    })
   })
 
   loadMenu();
   sessionStorage.clear();
->>>>>>> 9a75cb256ee0c5a823838b7513863d0e4c24c606
 });

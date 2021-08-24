@@ -38,16 +38,10 @@ $(() => {
     }
     cart.push(parseInt(menuID));
     sessionStorage.setItem('myCart', JSON.stringify(cart));
-    // console.log(cart[0]);
-    // for (const item of cart) {
-    //   console.log();
-    // }
-    // $('#cart').append(cart.length);
 
     $.post("/users", { menuID }, function (data) {
-      console.log('----DATA', data);
+      $('#cart').append(`<p>${data[0].name}<br></p>`)
     });
-
 
   })
 

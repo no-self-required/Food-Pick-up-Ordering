@@ -1,13 +1,20 @@
 // load .env data into process.env
 require('dotenv').config();
 
+
 // Web server config
 const PORT = process.env.PORT || 8080;
 const ENV = process.env.ENV || "development";
+
+const http = require('http');
 const express = require("express");
+const MessagingResponse = require('twilio').twiml.MessagingResponse;
+
 const bodyParser = require("body-parser");
 const sass = require("node-sass-middleware");
+
 const app = express();
+
 const morgan = require('morgan');
 
 // PG database client/connection setup
@@ -55,8 +62,24 @@ app.use("/login", loginRoutes(db));
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
   res.render('index');
-
 });
+
+// app.post('/sms', (req, res) => {
+//   const twiml = new MessagingResponse();
+
+//   twiml.message('The Robots are coming! Head for the hills!');
+
+//   res.writeHead(200, {'Content-Type': 'text/xml'});
+//   res.end(twiml.toString());
+// });
+
+// http.createServer(app).listen(1337, () => {
+//   console.log('Express server listening on port 1337');
+// });
+
+// app.get('/order-confirmation', (req, res) => {
+//   res.render('order_status');
+// });
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

@@ -7,7 +7,7 @@ client.messages
          body: 'this is a test this is a test',
          messagingServiceSid: 'MG2c7c90f5bbb2eba4c7bfcfde64d81397',
          from: '+17147092156',
-         to: '+17052415272'
+         to: '+1'
        })
       .then(message => console.log(message.sid))
       .done();

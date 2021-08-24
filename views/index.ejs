@@ -11,8 +11,9 @@
 
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <!-- <script type="text/javascript" src="/scripts/app.js"></script> -->
+    <script type="text/javascript" src="/scripts/order_form.js"></script>
     <script type="text/javascript" src="/scripts/menu_listing.js"></script>
+
 
   </head>
 
@@ -20,17 +21,19 @@
 
     <header class="header">
       <div class="pic-login">
-        <img class="restaurant-pic"src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-HbCYOX689sp9X_8ImCcZU0eT4AoGe177fQ&usqp=CAU">
+        <img class="restaurant-pic" src="https://images.dailyhive.com/20200826125008/unnamed-22.jpg">
       </div>
       <div class="login">
-        <button type="submit">Login</button>
+        <form method="GET" action='/login'>
+          <button type="submit">Login</button>
+        </form>
       </div>
     </header>
 
 
     <div id="container">
       <div id="menu"></div>
-      <div id="cart"><ul></ul></div>
+      <div id="cart"></div>
     </div>
   </body>
 </html>

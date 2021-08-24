@@ -35,8 +35,6 @@ module.exports = (db) => {
       .then(data => res.send(data.rows))
       .catch(err => res.send(err.message))
 
-  console.log('------------post request from menu listing js file: ', req.body.menuID);
-
   });
 
   return router;

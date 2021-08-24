@@ -7,7 +7,7 @@ CREATE TABLE orders (
   prep_time TIMESTAMP NOT NULL,
   note TEXT,
   is_paid BOOLEAN NOT NULL DEFAULT FALSE,
-  total_price INTEGER NOT NULL,
+  total_price DECIMAL(5, 2) NOT NULL,
   order_status INTEGER NOT NULL
 );
 

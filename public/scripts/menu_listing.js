@@ -1,4 +1,5 @@
 $(() => {
+  window.menuList = {};
 
   function createMenu(menu_items) {
     return `
@@ -14,6 +15,8 @@ $(() => {
       </div>
     `
   }
+
+  window.menuList.createMenu = createMenu;
 
   const loadMenu = function () {
     $.ajax('/users', { method: 'GET' })
@@ -43,10 +46,9 @@ $(() => {
     sessionStorage.setItem('myCart', JSON.stringify(cart));
 
     $.post("/users", { menuID }, function (data) {
-      console.log('----DATA', data);
-      $('#cart').append(data);
+      $('#cart-items').append(inCartList.addItem(data[0]));
+      Cart.calculateTotal(data[0].price);
     });
-
   })
 
   loadMenu();

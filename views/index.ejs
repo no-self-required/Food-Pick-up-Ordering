@@ -11,8 +11,10 @@
 
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <!-- <script type="text/javascript" src="/scripts/app.js"></script> -->
+    <script type="text/javascript" src="/scripts/order_form.js"></script>
     <script type="text/javascript" src="/scripts/menu_listing.js"></script>
+    <script type="text/javascript" src="/scripts/cart.js"></script>
+
 
   </head>
 
@@ -20,7 +22,7 @@
 
     <header class="header">
       <div class="pic-login">
-        <img class="restaurant-pic"src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-HbCYOX689sp9X_8ImCcZU0eT4AoGe177fQ&usqp=CAU">
+        <img class="restaurant-pic" src="https://images.dailyhive.com/20200826125008/unnamed-22.jpg">
       </div>
       <div class="login">
         <form method="GET" action='/login'>
@@ -33,7 +35,22 @@
     <div id="container">
       <div id="menu"></div>
       <div id="cart">
-        <button class="order-button" type="submit">Order</button>
+        <form class="select-menu-items">
+          <h3>Cart</h3>
+          <div id="cart-items">
+          </div>
+          <div class="cart-wrapper">
+            <div class="cart-left-column">
+              <p>Total</p>
+            </div>
+            <div id="total" class="cart-right-column">
+            </div>
+            </div>
+          <div class="menu-submit">
+            <button type="button" class="btn btn-primary">Check Out</button>
+            <button type="button" class="btn btn-secondary">Reset<button>
+          </div>
+        </form>
       </div>
     </div>
   </body>

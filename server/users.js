@@ -8,7 +8,7 @@
 const express = require('express');
 //const { restart } = require('nodemon');
 const router  = express.Router();
-const cookieSession = require('cookie-session');
+//const cookieSession = require('cookie-session');
 
 module.exports = (db) => {
 

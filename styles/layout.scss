@@ -34,9 +34,10 @@ img {
 }
 
 #cart {
-  display: flex;
-  height: 50%;
-  width: 15%;
+  height: auto;
+  border-radius: 10px;
+  max-height: 50rem;
+  width: 20em;
   border: 1px solid black;
   padding: 20px;
   margin: 20px;

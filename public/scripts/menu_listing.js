@@ -48,5 +48,5 @@ $(() => {
   })
 
   loadMenu();
-  // sessionStorage.clear();
+  // localStorage.clear();
 });

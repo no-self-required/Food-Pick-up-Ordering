@@ -13,19 +13,13 @@ $(() => {
         </div>
 
         <div class="loginForm_wrapper">
-          <button>View order</button>
+          <button>View order!!</button>
         </div>
   </form>
   `);
 
   window.$logInForm = $logInForm;
 
-  $logInForm.on('submit', function(event) {
-    event.preventDefault();
-
-    views_manager.show('login');
-
-  });
 });
 
 //if !name, phonenumber: create order

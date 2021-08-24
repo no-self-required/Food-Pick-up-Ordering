@@ -8,7 +8,6 @@
 const express = require('express');
 //const { restart } = require('nodemon');
 const router  = express.Router();
-const cookieSession = require('cookie-session');
 
 module.exports = (db) => {
 
@@ -23,11 +22,22 @@ module.exports = (db) => {
   });
 
   router.post('/', (req, res) => {
-    // db.query(`SELECT * FROM menu_items WHERE menu_item.id = $1`, [req.body.menuID])
-    // .then(data => res.send(data.rows));
-    console.log('------------post request from menu listing js file: ', req.body.menuID);
-  });
+    const queryParams = [];
 
+    let queryString = `SELECT * FROM menu_items`;
+
+    if (req.body) {
+      queryParams.push(req.body.menuID);
+      queryString += ` WHERE id=$${queryParams.length} `;
+    }
+
+    db.query(queryString, queryParams)
+      .then(data => console.log('What is my data??? ', data.rows))
+      .catch(err => { res.send(err.message) })
+
+  console.log('------------post request from menu listing js file: ', req.body.menuID);
+
+  });
 
   return router;
 };

@@ -16,6 +16,7 @@ $(() => {
         <div class="cart-right-column">
           <p>$${menu_items.price}</p>
         </div>
+
       </div>
     `
   }

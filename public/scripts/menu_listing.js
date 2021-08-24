@@ -1,6 +1,7 @@
 $(() => {
   window.menuList = {};
 
+
   function createMenu(menu_items) {
     return `
       <div class="menu-listing" data-id="${menu_items.id}">
@@ -18,9 +19,11 @@ $(() => {
 
   window.menuList.createMenu = createMenu;
 
+
   const loadMenu = function () {
     $.ajax('/users', { method: 'GET' })
     .then(function (menu) {
+      console.log('MENU-----', menu);
       for (let item of menu) {
         $('#menu').append(createMenu(item));
       }
@@ -32,21 +35,44 @@ $(() => {
     console.log($(this).attr("data-id"));
     let menuID = $(this).attr("data-id");
 
-    let cart = sessionStorage.getItem('myCart');
+    let cart = localStorage.getItem('myCart');
     if (!cart) {
       cart = [];
     } else {
       cart = JSON.parse(cart);
     }
-    cart.push(parseInt(menuID));
-    sessionStorage.setItem('myCart', JSON.stringify(cart));
 
     $.post("/users", { menuID }, function (data) {
-      $('#cart-items').append(inCartList.addItem(data[0]));
+      console.log("DATA----", data);
+      let cartItem = {name: data[0].name, price: data[0].price}
+      cart.push(cartItem);
+      localStorage.setItem('myCart', JSON.stringify(cart));
+      $('#cart-items').append(inCartList.addItem(cartItem));
+      Cart.renderCart()
       Cart.calculateTotal(data[0].price);
     });
   })
 
+  const reloadCart = function () {
+    let cart = localStorage.getItem('myCart');
+    console.log("CART-----", cart);
+    let arr = JSON.parse(cart);
+    let total = 0;
+    if (cart) {
+      for (const item of arr) {
+        console.log("ITEM-----", item);
+        total += parseInt(item.price);
+        $('#cart-items').append(inCartList.addItem(item));
+      }
+    }
+    $('#total').text(total);
+  }
+
+
+  reloadCart();
   loadMenu();
-  sessionStorage.clear();
+
+
+  // console.log("LOADED-----");
+  // localStorage.clear();
 });

@@ -22,6 +22,7 @@ module.exports = (db) => {
   });
 
   router.post('/', (req, res) => {
+    console.log('what do we have here:', req.body);
     const queryParams = [];
 
     let queryString = `SELECT * FROM menu_items`;
@@ -34,7 +35,6 @@ module.exports = (db) => {
     db.query(queryString, queryParams)
       .then(data => res.send(data.rows))
       .catch(err => res.send(err.message))
-
   });
 
   return router;

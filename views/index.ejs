@@ -14,8 +14,10 @@
 
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <!-- <script type="text/javascript" src="/scripts/app.js"></script> -->
+    <script type="text/javascript" src="/scripts/order_form.js"></script>
     <script type="text/javascript" src="/scripts/menu_listing.js"></script>
+    <script type="text/javascript" src="/scripts/cart.js"></script>
+
 
   </head>
 
@@ -23,15 +25,41 @@
 
     <header class="header">
       <div class="pic-login">
+<<<<<<< HEAD
         <h1 class="restaurant-name">Oki Sushi</h1>
       </div>
       <div class="login">
         <button type="submit">LOGIN</button>
+=======
+        <img class="restaurant-pic" src="https://images.dailyhive.com/20200826125008/unnamed-22.jpg">
+      </div>
+      <div class="login">
+        <form method="GET" action='/login'>
+          <button type="submit">Login</button>
+        </form>
+>>>>>>> 206405e8a8216157d5753b8857dbe4a83eec7cac
       </div>
     </header>
     <div id="container">
       <div id="menu"></div>
-      <div id="cart"><ul></ul></div>
+      <div id="cart">
+        <form class="select-menu-items">
+          <h3>Cart</h3>
+          <div id="cart-items">
+          </div>
+          <div class="cart-wrapper">
+            <div class="cart-left-column">
+              <p>Total</p>
+            </div>
+            <div id="total" class="cart-right-column">
+            </div>
+            </div>
+          <div class="menu-submit">
+            <button type="button" class="btn btn-primary">Check Out</button>
+            <button type="button" class="btn btn-secondary">Reset<button>
+          </div>
+        </form>
+      </div>
     </div>
   </body>
 </html>

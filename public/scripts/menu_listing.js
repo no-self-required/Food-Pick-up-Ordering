@@ -1,4 +1,5 @@
 $(() => {
+  window.menuList = {};
 
   function createMenu(menu_items) {
     return `
@@ -15,6 +16,8 @@ $(() => {
     `
   }
 
+  window.menuList.createMenu = createMenu;
+
   const loadMenu = function () {
     $.ajax('/users', { method: 'GET' })
     .then(function (menu) {
@@ -23,7 +26,6 @@ $(() => {
       }
     });
   }
-
 
   $('#menu').on('click', '.menu-listing', function () {
 
@@ -40,9 +42,13 @@ $(() => {
     sessionStorage.setItem('myCart', JSON.stringify(cart));
 
     $.post("/users", { menuID }, function (data) {
+<<<<<<< HEAD
       $('#cart').append(`<p>${data[0].name}<br> ${data[0].price}</p>`)
+=======
+      $('#cart-items').append(inCartList.addItem(data[0]));
+      Cart.calculateTotal(data[0].price);
+>>>>>>> 206405e8a8216157d5753b8857dbe4a83eec7cac
     });
-
   })
 
   loadMenu();

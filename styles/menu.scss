@@ -1,0 +1,33 @@
+#menu {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  margin: 40px;
+  padding: 10px;
+  width: 90vw;
+}
+
+.menu-listing {
+  margin: 15px;
+  width: 50em;
+  height: auto;
+  display: flex;
+}
+
+.menu-listing:hover {
+  box-shadow:10px 10px 0px 0px rgb(202, 213, 230);
+}
+
+
+// <div class="menu-listing" data-id="${menu_items.id}">
+// <section class="menu-listing_image">
+//   <img src="${menu_items.image}">
+// </section>
+// <section class="menu-listing_details">
+//   <p class="menu-listing_name">name: ${menu_items.name}</p>
+//   <p class="menu-listing_description">description: ${menu_items.description}</p>
+//   <p class="menu-listing_price">price: ${menu_items.price}</p>
+// </section>
+// </div>
+// `

@@ -40,7 +40,7 @@ $(() => {
     sessionStorage.setItem('myCart', JSON.stringify(cart));
 
     $.post("/users", { menuID }, function (data) {
-      $('#cart').append(`<p>${data[0].name}<br></p>`)
+      $('#cart').append(`<p>${data[0].name}<br> ${data[0].price}</p>`)
     });
 
   })

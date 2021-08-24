@@ -8,10 +8,6 @@
 const express = require('express');
 //const { restart } = require('nodemon');
 const router  = express.Router();
-<<<<<<< HEAD
-//const cookieSession = require('cookie-session');
-=======
->>>>>>> 9710da69908188edd1929b5a834aee7d84ddd882
 
 module.exports = (db) => {
 

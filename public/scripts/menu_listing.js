@@ -24,10 +24,6 @@ $(() => {
       for (let item of menu) {
         $('#menu').append(createMenu(item));
       }
-    })
-    .catch(err => {
-      res.status(500)
-      .json({ error: err.message });
     });
   }
 
@@ -36,14 +32,14 @@ $(() => {
     console.log($(this).attr("data-id"));
     let menuID = $(this).attr("data-id");
 
-    let cart = sessionStorage.getItem('myCart');
+    let cart = localStorage.getItem('myCart');
     if (!cart) {
       cart = [];
     } else {
       cart = JSON.parse(cart);
     }
     cart.push(parseInt(menuID));
-    sessionStorage.setItem('myCart', JSON.stringify(cart));
+    localStorage.setItem('myCart', JSON.stringify(cart));
 
     $.post("/users", { menuID }, function (data) {
       $('#cart-items').append(inCartList.addItem(data[0]));
@@ -52,5 +48,5 @@ $(() => {
   })
 
   loadMenu();
-  sessionStorage.clear();
+  // sessionStorage.clear();
 });

@@ -11,6 +11,7 @@ $(() => {
   }
 
 
-  renderCart();
+  // renderCart();
   window.Cart.calculateTotal = calculateTotal;
+  window.Cart.renderCart = renderCart;
 });

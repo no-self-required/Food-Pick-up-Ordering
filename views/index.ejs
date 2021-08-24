@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="/styles/menu.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/container.css" type="text/css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
@@ -24,21 +25,24 @@
   <body>
 
     <header class="header">
+      <div class="Oki-login">
       <div class="pic-login">
-<<<<<<< HEAD
         <h1 class="restaurant-name">Oki Sushi</h1>
       </div>
-      <div class="login">
+      <!-- <div class="login">
         <button type="submit">LOGIN</button>
-=======
         <img class="restaurant-pic" src="https://images.dailyhive.com/20200826125008/unnamed-22.jpg">
-      </div>
+      </div> -->
       <div class="login">
         <form method="GET" action='/login'>
-          <button type="submit">Login</button>
+          <button type="login">Login</button>
         </form>
->>>>>>> 206405e8a8216157d5753b8857dbe4a83eec7cac
       </div>
+    </div>
+      <div class="head-container"><p>Oki Sushi<br>
+        Open 11:00 AM - 9:00 PM</p>
+      </div>
+
     </header>
     <div id="container">
       <div id="menu"></div>
@@ -56,7 +60,7 @@
             </div>
           <div class="menu-submit">
             <button type="button" class="btn btn-primary">Check Out</button>
-            <button type="button" class="btn btn-secondary">Reset<button>
+            <button type="button" class="btn btn-secondary">Reset</button>
           </div>
         </form>
       </div>

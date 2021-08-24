@@ -5,20 +5,27 @@
   height: auto;
   margin: 40px;
   padding: 10px;
-  width: 90vw;
+  width: 50px;
+  border-radius: 10px;
 }
 
 .menu-listing {
   margin: 15px;
-  width: 50em;
+  width: 400px;
   height: auto;
   display: flex;
+  flex-direction:column-reverse;
+  border-color: rgb(196, 192, 192);
+  border-radius: 10px;
 }
 
 .menu-listing:hover {
   box-shadow:10px 10px 0px 0px rgb(202, 213, 230);
 }
 
+.button {
+  color: black;
+}
 
 // <div class="menu-listing" data-id="${menu_items.id}">
 // <section class="menu-listing_image">

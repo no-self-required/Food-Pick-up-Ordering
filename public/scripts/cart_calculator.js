@@ -8,7 +8,7 @@ $(() => {
   if (cart) {
     for (const item of arr) {
       total += parseFloat(item.price);
-      tax += total * 0.13;
+
       $('#cart-items').append(inCartList.addItem(item));
     }
   }
@@ -16,12 +16,18 @@ $(() => {
   window.Cart = { total };
 
   function calculateTotal(price) {
-    Cart.total = parseFloat(price) + parseFloat(Cart.total.toString());
-    $('#total').text(parseFloat(Cart.total));
+    Cart.subTotal = parseFloat(price) + parseFloat(Cart.total.toString());
+    // Cart.tax = parseFloat(price) + parseFloat(Cart.tax.toString());
+    // Cart.total =  Cart.subTotal + Cart.tax;
+    $('#sub-total').text(parseFloat(Cart.subTotal));
+    // $('#tax').text(parseFloat(Cart.tax));
+    // $('#total').text(parseFloat(Cart.total));
   }
 
   function renderCart() {
-    $('#total').text(Cart.total);
+    $('#sub-total').text(Cart.subTotal);
+    // $('#tax').text(Cart.tax);
+    // $('#total').text(Cart.total);
   }
 
 

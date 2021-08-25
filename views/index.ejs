@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/header.js"></script>
@@ -20,6 +20,7 @@
     <script type="text/javascript" src="/scripts/menu_listing.js"></script>
     <script type="text/javascript" src="/scripts/cart_calculator.js"></script>
     <script type="text/javascript" src="/scripts/login_form.js"></script>
+    <script type="text/javascript" src="/scripts/checkoutv2.js"></script>
 
 
   </head>
@@ -42,11 +43,12 @@
         </form>
       </div>
     </div>
-      <div class="head-container"><p>Oki Sushi<br>
+      <!-- <div class="head-container"><p>Oki Sushi<br>
         Open 11:00 AM - 9:00 PM</p>
-      </div>
+      </div> -->
 
     </header>
+    <div class="class-container">
     <div id="container">
       <div id="menu"></div>
       <div id="cart">
@@ -61,12 +63,20 @@
             <div id="total" class="cart-right-column">
             </div>
             </div>
+            <form id="phone-number" action="/order-confirmation/" method="POST" Content-Type: "application/x-www-form-urlencoded">
+              <div class="phone-number-text">
+                <span id="err1">Your number must have 10 digits.</span>
+                <label for="tweet-text">Phone number:</label>
+                <textarea></textarea>
+              </div>
+            </form>
           <div class="menu-submit">
-            <button type="button" class="btn btn-primary">Check Out</button>
-            <button type="button" class="btn btn-secondary">Clear Cart</button>
+            <button type="button" class="btn btn-primary" id="checkout">Check Out</button>
+            <button type="button" class="btn btn-secondary" id="clear-cart">Clear Cart</button>
           </div>
         </form>
       </div>
     </div>
+  </div>
   </body>
 </html>

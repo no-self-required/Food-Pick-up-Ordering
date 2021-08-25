@@ -66,6 +66,13 @@ $(() => {
     $('#total').text(total);
   }
 
+  $('#clear-cart').on('click', function () {
+    console.log('it worked')
+    localStorage.clear()
+    $('#cart-items').empty()
+    $('#total').empty()
+    reloadCart()
+    });
 
   // reloadCart();
   loadMenu();

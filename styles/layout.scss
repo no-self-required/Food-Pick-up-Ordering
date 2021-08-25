@@ -8,30 +8,7 @@ body {
   }
 }
 
-.menu-listing{
-  display: flex;
-  width: fit-content;
-  border: 1px solid black;
-}
 
-.menu-listing_details {
-  order: 1
-}
-
-.menu-listing_image {
-  order: 2;
-}
-
-#menu {
-  display: flex;
-  flex-direction: column;
-  width: fit-content;
-}
-
-img {
-  height: 5em;
-  width: 5em;
-}
 
 #cart {
   height: auto;
@@ -43,6 +20,7 @@ img {
   margin: 20px;
   position: fixed;
   right: 0;
+  background-color: white;
 
   .shopping-cart {
     display: flex;

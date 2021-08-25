@@ -38,7 +38,7 @@ module.exports = (db) => {
   });
 
   router.post('/checkout', (req, res) => {
-
+    console.log('DATA IN ROUNTER', req.body);
   })
 
   return router;

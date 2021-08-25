@@ -19,10 +19,9 @@
     <script type="text/javascript" src="/scripts/added_items.js"></script>
     <script type="text/javascript" src="/scripts/menu_listing.js"></script>
     <script type="text/javascript" src="/scripts/cart_calculator.js"></script>
-    <script type="text/javascript" src="/scripts/login_form.js"></script>
-    <script type="text/javascript" src="/scripts/checkoutv2.js"></script>
-
-
+    <script type="text/javascript" src="/scripts/cart_interaction_control.js"></script>
+    <script type="text/javascript" src="/scripts/clearCart.js"></script>
+    <script type="text/javascript" src="/scripts/phonenum.js"></script>
   </head>
 
   <body>
@@ -49,34 +48,13 @@
 
     </header>
     <div class="class-container">
-    <div id="container">
-      <div id="menu"></div>
-      <div id="cart">
-        <form class="select-menu-items">
-          <h3>Cart</h3>
-          <div id="cart-items">
-          </div>
-          <div class="cart-wrapper">
-            <div class="cart-left-column">
-              <p>Total</p>
-            </div>
-            <div id="total" class="cart-right-column">
-            </div>
-            </div>
-            <form id="phone-number" action="/order-confirmation/" method="POST" Content-Type: "application/x-www-form-urlencoded">
-              <div class="phone-number-text">
-                <span id="err1">Your number must have 10 digits.</span>
-                <label for="tweet-text">Phone number:</label>
-                <textarea></textarea>
-              </div>
-            </form>
-          <div class="menu-submit">
-            <button type="button" class="btn btn-primary" id="checkout">Check Out</button>
-            <button type="button" class="btn btn-secondary" id="clear-cart">Clear Cart</button>
-          </div>
-        </form>
+    <div id="container" class="container">
+      <div id="menu" class="col"></div>
+      <div id="cart"  class="col">
+        <h3>Cart</h3>
       </div>
     </div>
+  </div>
   </div>
   </body>
 </html>

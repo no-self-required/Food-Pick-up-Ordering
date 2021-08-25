@@ -23,7 +23,6 @@ $(() => {
 
   let cart = localStorage.getItem('myCart');
   cart = JSON.parse(cart);
-  console.log('CART------', typeof(cart));
 
   if (cart) {
     for (const item of cart) {
@@ -36,7 +35,7 @@ $(() => {
   $('.added-menu-items').on('click', function (event) {
     event.preventDefault();
 
-    $.post('/order', {cart},  function(data) {
+    $.post('/order', { cart },  function(data) {
       console.log('IN CART_INTERACTION--------', data);
     })
   })

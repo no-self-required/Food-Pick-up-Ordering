@@ -8,7 +8,7 @@ body {
   }
 }
 
-.menu-listing{
+.menu-listing {
   display: flex;
   width: fit-content;
   border: 1px solid black;
@@ -40,9 +40,7 @@ img {
   width: 20em;
   border: 1px solid black;
   padding: 20px;
-  margin: 20px;
-  position: fixed;
-  right: 0;
+  margin: 100px 500px;
 
   .shopping-cart {
     display: flex;

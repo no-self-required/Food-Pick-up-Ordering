@@ -3,10 +3,12 @@ $(() => {
   console.log("CART-----", cart);
   let arr = JSON.parse(cart);
   let total = 0;
+  let tax = 0;
 
   if (cart) {
     for (const item of arr) {
       total += parseFloat(item.price);
+      tax += total * 0.13;
       $('#cart-items').append(inCartList.addItem(item));
     }
   }

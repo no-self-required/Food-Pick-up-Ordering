@@ -41,36 +41,14 @@ $(() => {
     }
 
     $.post("/users", { menuID }, function (data) {
-      // console.log("DATA----", data);
-      let cartItem = {name: data[0].name, price: data[0].price}
-      cart.push(cartItem);
+      // let cartItem = { name: data[0].name, price: data[0].price };
+      cart.push(data[0]);
       localStorage.setItem('myCart', JSON.stringify(cart));
-      $('#cart-items').append(inCartList.addItem(cartItem));
-      // Cart.renderCart();
+      $('#cart-items').append(inCartList.addItem(data[0]));
       Cart.calculateTotal(data[0].price);
     });
   })
 
-  const reloadCart = function () {
-    let cart = localStorage.getItem('myCart');
-    // console.log("CART-----", cart);
-    let arr = JSON.parse(cart);
-    let total = 0;
-    if (cart) {
-      for (const item of arr) {
-        // console.log("ITEM-----", item);
-        total += parseInt(item.price);
-        $('#cart-items').append(inCartList.addItem(item));
-      }
-    }
-    $('#total').text(total);
-  }
-
-
-  // reloadCart();
   loadMenu();
 
-
-  // console.log("LOADED-----");
-  // localStorage.clear();
 });

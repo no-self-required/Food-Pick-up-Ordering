@@ -51,21 +51,20 @@ $(() => {
     });
   })
 
-  // const reloadCart = function () {
-  //   let cart = localStorage.getItem('myCart');
-  //   // console.log("CART-----", cart);
-  //   let arr = JSON.parse(cart);
-  //   let total = 0;
-  //   if (cart) {
-  //     for (const item of arr) {
-  //       console.log("ITEM-----", item);
-  //       total += parseFloat(item.price);
-  //       $('#cart-items').append(inCartList.addItem(item));
-  //       console.log('TOTAL-------',total);
-  //     }
-  //   }
-  //   $('#total').text(total);
-  // }
+  const reloadCart = function () {
+    let cart = localStorage.getItem('myCart');
+    // console.log("CART-----", cart);
+    let arr = JSON.parse(cart);
+    let total = 0;
+    if (cart) {
+      for (const item of arr) {
+        // console.log("ITEM-----", item);
+        total += parseInt(item.price);
+        $('#cart-items').append(inCartList.addItem(item));
+      }
+    }
+    $('#total').text(total);
+  }
 
 
   // reloadCart();

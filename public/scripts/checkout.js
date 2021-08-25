@@ -1,4 +1,34 @@
 $(() => {
+  window.
+
+  function cart() {
+    return `
+      <div id="container">
+      <div id="menu"></div>
+      <div id="cart">
+        <form class="select-menu-items">
+          <h3>Cart</h3>
+          <div id="cart-items">
+          </div>
+          <div class="cart-wrapper">
+            <div class="cart-left-column">
+              <p>Total</p>
+            </div>
+            <div id="total" class="cart-right-column">
+            </div>
+            </div>
+          <div class="menu-submit">
+            <button type="button" class="btn btn-primary">Check Out</button>
+            <button type="button" class="btn btn-secondary">Clear Cart</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    `
+  }
+
+
+
   $('.menu-submit').on('click', '.menu-listing', function () {
 
     console.log($(this).attr("data-id"));

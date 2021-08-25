@@ -7,32 +7,31 @@
 
 const express = require('express');
 const router  = express.Router();
+// const accountSid = process.env
 
 module.exports = (db) => {
   router.post("/", (req, res) => {
     console.log('IN ORDER.JS POST--------',req.body);
+
     // const queryParams = [];
 
-    // const queryString =
-    // `
-    //   INSERT INTO orders
-    //   (menu_item_id, phone, order_time, prep_time, note, total_price, order_status)
-    //   VALUES ($1, $2, $3, $4, $5, $6, $7)
-    // `
+    let queryString =
+    `
+      INSERT INTO orders
+      (menu_item_id, phone, total_price)
+    `
 
-    // if (req.body) {
+    if (req.body) {
+      queryString += `VALUES (${req.body.menuID}, ${req.body.phoneNumber}, ${req.body.total}); `
+    }
 
-    // }
-    // db.query()
-    //   .then(data => {
-    //     const users = data.rows;
-    //     res.json({ users });
-    //   })
-    //   .catch(err => {
-    //     res
-    //       .status(500)
-    //       .json({ error: err.message });
-    //   });
+    db.query(queryString)
+      .then(data => data.rows)
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
   });
   return router;
 };

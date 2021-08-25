@@ -39,9 +39,7 @@ $(() => {
     } else {
       cart = JSON.parse(cart);
     }
-
     $.post("/users", { menuID }, function (data) {
-      // let cartItem = { name: data[0].name, price: data[0].price };
       cart.push(data[0]);
       localStorage.setItem('myCart', JSON.stringify(cart));
       $('#cart-items').append(inCartList.addItem(data[0]));

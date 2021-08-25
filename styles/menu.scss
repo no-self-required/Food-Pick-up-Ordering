@@ -1,12 +1,16 @@
 #menu {
   align-self: center;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
   height: auto;
   margin: 40px;
   padding: 10px;
-  width: 50px;
+  width: 50%;
   border-radius: 10px;
+  background-color: white;
+  flex-wrap: wrap;
 }
 
 .menu-listing {
@@ -17,14 +21,60 @@
   flex-direction:column-reverse;
   border-color: rgb(196, 192, 192);
   border-radius: 10px;
+  width: fit-content;
 }
 
 .menu-listing:hover {
   box-shadow:10px 10px 0px 0px rgb(202, 213, 230);
 }
 
-.button {
-  color: black;
+.menu-listing_details {
+  order: 1
+}
+
+.menu-listing_image {
+  order: 2;
+}
+
+img {
+  height: 5em;
+  width: 5em;
+}
+
+
+#cart {
+  height: auto;
+  border-radius: 10px;
+  max-height: 50rem;
+  width: 20em;
+  border: 1px solid black;
+  padding: 20px;
+  margin: 20px;
+  position: fixed;
+  right: 0;
+  background-color: white;
+  margin-right: 125px;
+
+  .shopping-cart {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .cart-wrapper {
+    display: flex;
+    flex-direction: row;
+  }
+  .cart-left-column {
+    order: 1;
+    flex-grow: 1;
+  }
+
+  .cart-right-column {
+    order: 2;
+    flex-grow: 1;
+    text-align: right;
+  }
 }
 
 // <div class="menu-listing" data-id="${menu_items.id}">

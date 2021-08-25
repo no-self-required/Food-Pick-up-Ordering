@@ -1,7 +1,7 @@
 .header {
   align-content: space-between;
   background-color: black;
-  background-image: url("https://img.cdn4dd.com/cdn-cgi/image/fit=contain,width=1200,height=672,format=auto/https://doordash-static.s3.amazonaws.com/media/photos/81ec1a71-9cdd-41ec-aaf9-d97dd3ac9597-retina-large.jpg");
+  background-image: url("https://media.timeout.com/images/105804869/image.jpg");
   background-size: cover;
   display: flex;
   flex-direction: column;
@@ -10,6 +10,12 @@
   width: 100vw;
   padding: 40px;
   padding-bottom: 0px;
+  position: relative;
+
+  // other photos
+  //https://img.cdn4dd.com/cdn-cgi/image/fit=contain,width=1200,height=672,format=auto/https://doordash-static.s3.amazonaws.com/media/photos/81ec1a71-9cdd-41ec-aaf9-d97dd3ac9597-retina-large.jpg
+  //https://media.timeout.com/images/105804869/image.jpg
+  // https://www.hedonistit.com/wp-content/uploads/2017/07/main_moon_sushi-e1500976008678.jpg
 
   p {
     text-align: center;
@@ -17,7 +23,7 @@
 
   button {
     align-self: flex-start;
-    background: black;
+    background: transparent;
     color: white;
     font-family: sans-serif;
     display: flex;
@@ -39,7 +45,7 @@
 }
 
 .restaurant-name {
-  color:white;
+  color: gray;
   font-family: 'Syncopate', sans-serif;
   font-size: 50px;
 }
@@ -62,5 +68,5 @@ div.login {
   border-radius: 15px 15px 0% 0%;
   align-items: center;
   background-color: white;
-  width: 90%;
+  width: 1200px;
 }

@@ -37,5 +37,9 @@ module.exports = (db) => {
       .catch(err => res.send(err.message))
   });
 
+  router.post('/checkout', (req, res) => {
+
+  })
+
   return router;
 };

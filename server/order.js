@@ -13,24 +13,20 @@ module.exports = (db) => {
   router.post("/", (req, res) => {
     console.log('IN ORDER.JS POST--------',req.body);
 
-    const queryParams = [];
+    // const queryParams = [];
 
-    const queryString =
+    let queryString =
     `
       INSERT INTO orders
-      (menu_item_id, phone, order_time, prep_time, note, total_price, order_status)
+      (menu_item_id, phone, total_price)
     `
 
     if (req.body) {
-      queryParams.push(req.body);
-      queryString += `VALUES (${req.body.menuID}, ${req.body.phoneNumber}, ${NOW()}, ${req.body.total}, $1)`
+      queryString += `VALUES (${req.body.menuID}, ${req.body.phoneNumber}, ${req.body.total}); `
     }
 
-    db.query(queryString, queryParams)
-      .then(data => {
-        const users = data.rows;
-        res.json({ users });
-      })
+    db.query(queryString)
+      .then(data => data.rows)
       .catch(err => {
         res
           .status(500)

@@ -56,7 +56,8 @@ $(() => {
   let phoneNumber = '';
 
   $('#phoneNum').keyup(function () {
-    phoneNumber = $('#phoneNum').val();
+    phoneNumber = $('#phoneNum').val()
+    // console.log(phoneNumber);
     if (phoneNumber.match(/^\d{10}$/)) {
       $('#checkout').prop('disabled', false);
     } else {
@@ -69,12 +70,14 @@ $(() => {
     event.preventDefault();
     console.log('LOCAL STORAGE-----',localStorage);
     const cart = JSON.parse(localStorage.myCart);
-    let total = Cart.total;
+    let total = Cart.subTotal;
 
     let menuID = [];
     for (const item of cart) {
       menuID.push(item.id);
     }
+    // let subTotal = Cart.subTotal;
+    // let tax = Cart.tax;
 
     $.post('/order', { menuID, phoneNumber, total },  function(data) {
       console.log('IN CART_INTERACTION--------', data);

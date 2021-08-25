@@ -2,8 +2,8 @@ $(() => {
   let cart = localStorage.getItem('myCart');
   console.log("CART-----", cart);
   let arr = JSON.parse(cart);
-  let total = 0;
-  let tax = 0;
+  let subTotal = 0;
+  // let tax = 0;
 
   if (cart) {
     for (const item of arr) {
@@ -13,10 +13,10 @@ $(() => {
     }
   }
 
-  window.Cart = { total };
+  window.Cart = { subTotal };
 
   function calculateTotal(price) {
-    Cart.subTotal = parseFloat(price) + parseFloat(Cart.total.toString());
+    Cart.subTotal = parseFloat(price) + parseFloat(Cart.subTotal.toString());
     // Cart.tax = parseFloat(price) + parseFloat(Cart.tax.toString());
     // Cart.total =  Cart.subTotal + Cart.tax;
     $('#sub-total').text(parseFloat(Cart.subTotal));

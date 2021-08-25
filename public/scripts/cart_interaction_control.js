@@ -17,7 +17,7 @@ $(() => {
              </form>
              <button type="submit" id="checkout" class="btn btn-primary" form="phoneform" value="Check Out" disabled>Check Out</button>
           </div>
-      <div class="menu-submit">
+        <div class="menu-submit">
         <button type="submit" id="clear" class="btn btn-secondary">Clear Cart</button>
       </div>
     </form>
@@ -26,6 +26,7 @@ $(() => {
   window.$cartInteraction = $cartInteraction;
   $('#cart').append($cartInteraction);
 
+  //display cart items even after refresh the page
   let cart = localStorage.getItem('myCart');
   cart = JSON.parse(cart);
 
@@ -37,7 +38,33 @@ $(() => {
     Cart.renderCart();
   }
 
-  $('.added-menu-items').on('click', function (event) {
+  //clear button interaction
+  $('#clear').on('click', function () {
+    localStorage.clear();
+    $('#cart-items').empty();
+    $('#total').empty();
+    window.Cart.total = 0;
+  });
+
+  //add phone number interation
+  $(window).keydown(function (event) {
+    if (event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
+
+  $('#phoneNum').keyup(function () {
+    str = $('#phoneNum').val()
+    if (str.match(/[0-9]{3}[0-9]{3}[0-9]{4}/)) {
+      $('#checkout').prop('disabled', false);
+    } else {
+      $('#checkout').prop('disabled', true);
+    }
+  });
+
+  //connect post request to the checkout button
+  $('#checkout').on('click', function (event) {
     event.preventDefault();
 
     $.post('/order', { cart },  function(data) {

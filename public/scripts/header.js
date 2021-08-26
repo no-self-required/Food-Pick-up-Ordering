@@ -23,7 +23,5 @@ $(() => {
   )
 
   window.$header = $header;
-
-
-    $('.head-container').append($header);
+  $('.cart_container').append($header);
 });

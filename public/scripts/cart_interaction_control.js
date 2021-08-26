@@ -48,11 +48,11 @@ $(() => {
   // }
 
   //clear button interaction
-  $('.menu_submit').on('click', '#clear', function () {
+  $('#clear').on('click', function () {
     localStorage.clear();
     $('#cart-items').empty();
     $('#total').empty();
-    window.Cart.subTotal = 0;
+    // window.Cart.subTotal = 0;
   });
 
   //add phone number interation

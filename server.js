@@ -8,6 +8,7 @@ const ENV = process.env.ENV || "development";
 
 const http = require('http');
 const express = require("express");
+const session = require('express-session');
 const MessagingResponse = require('twilio').twiml.MessagingResponse;
 
 const bodyParser = require("body-parser");
@@ -27,6 +28,9 @@ db.connect();
 // 'dev' = Concise output colored by response status for development use.
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
 app.use(morgan('dev'));
+app.use(session({
+  secret: 'secret'
+}))
 
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({

@@ -23,14 +23,13 @@ $(() => {
     .then(function (menu) {
       // console.log('MENU-----', menu);
       for (let item of menu) {
-        $('#menu').append(createMenu(item));
+        $('.container').append(createMenu(item));
       }
     });
   }
 
-  $('#menu').on('click', '.menu-listing', function () {
+  $('.container').on('click', '.menu-listing', function () {
 
-    console.log($(this).attr("data-id"));
     let menuID = $(this).attr("data-id");
 
     let cart = localStorage.getItem('myCart');

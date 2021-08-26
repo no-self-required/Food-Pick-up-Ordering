@@ -7,31 +7,44 @@
 
 const express = require('express');
 const router  = express.Router();
-// const accountSid = process.env
 
 module.exports = (db) => {
+
+  const addOrderList = function (order, cart) {
+    console.log('CART--------', cart);
+    console.log('ORDER--------', order);
+    const values = cart.map(element => {
+      return `(${order.id}, ${element.id}, ${element.price})`;
+    })
+    const query = `INSERT INTO order_items (order_id, menu_item_id, price)
+    VALUES ${values.join(', ')} RETURNING *`;
+
+    return db
+    .query(query)
+    .then(data => console.log('IN ADDORDERLIST------',data.rows));
+  }
+
+  const orderCheckout = async function (cart) {
+    return db
+      .query(`INSERT INTO orders (phone, total_price, order_status)
+      VALUES (${cart.phoneNumber}, ${cart.total}, 1) RETURNING *`)
+      .then(data => {
+        console.log('DATA INSIDE OF ORDER.JS-----', data);
+        data.rows.forEach(order => {
+          addOrderList(order, cart.cart)
+        });
+      })
+      // .then( 1st twilio sms )
+      .catch(err => { console.log(err) });
+  }
+
   router.post("/", (req, res) => {
-    console.log('IN ORDER.JS POST--------',req.body);
+    const order = req.body;
+    console.log('IN ORDER.JS POST--------',order);
 
-    // const queryParams = [];
-
-    let queryString =
-    `
-      INSERT INTO orders
-      (menu_item_id, phone, total_price)
-    `
-
-    if (req.body) {
-      queryString += `VALUES (${req.body.menuID}, ${req.body.phoneNumber}, ${req.body.total}); `
-    }
-
-    db.query(queryString)
-      .then(data => data.rows)
-      .catch(err => {
-        res
-          .status(500)
-          .json({ error: err.message });
-      });
+    orderCheckout(order)
+    .then(() => res.sendStatus(200))
+    .catch(e => console.log(e));
   });
   return router;
 };

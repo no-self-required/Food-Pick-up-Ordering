@@ -23,12 +23,12 @@ $(() => {
     .then(function (menu) {
       // console.log('MENU-----', menu);
       for (let item of menu) {
-        $('.container').append(createMenu(item));
+        $('.menu-container').append(createMenu(item));
       }
     });
   }
 
-  $('.container').on('click', '.menu-listing', function () {
+  $('.menu-container').on('click', '.menu-listing', function () {
 
     let menuID = $(this).attr("data-id");
 

@@ -1,10 +1,8 @@
 $(() => {
   window.header = {};
 
-  const $pageHeader = $('#page-header');
-  function updateHeader(user) {
-    currentUser = user;
-    return `
+  const $header = $(
+    `
       <header class="header">
       <div class="Oki-login">
       <div class="pic-login">
@@ -22,11 +20,10 @@ $(() => {
       </div>
     </div>
     `
-  }
+  )
+
+  window.$header = $header;
 
 
-  $("header").on('click', '.login_button', () => {
-    $('.container').append(header);
-  });
-
+    $('.head-container').append($header);
 });

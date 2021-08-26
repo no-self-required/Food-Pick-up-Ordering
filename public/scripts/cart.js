@@ -1,6 +1,6 @@
 $(() => {
   const $cartSkeleton = $(
-    `<div id="container" class="container">
+    `<div id="container" class="cart-container">
       <div id="menu" class="col"></div>
       <div id="cart"  class="col">
         <h3>Cart</h3>

@@ -31,21 +31,24 @@ $(() => {
   `);
 
   window.$cartInteraction = $cartInteraction;
-  $('.container').append($cartInteraction);
+  $('.cart_container').append($cartInteraction);
 
   //display cart items even after refresh the page
   let cart = localStorage.getItem('myCart');
   cart = JSON.parse(cart);
 
-  if (cart) {
-    for (const item of cart) {
-      $('#cart-items').append(inCartList.addItem(item));
-    }
-    Cart.renderCart();
-  }
+  // if (cart) {
+  //   for (const item of cart) {
+  //     $('#cart-items').append(inCartList.addItem(item));
+  //   }
+  //   Cart.renderCart();
+  // } else {
+  //   $('#cart-items').empty();
+  //   Cart.renderCart();
+  // }
 
   //clear button interaction
-  $('#clear').on('click', function () {
+  $('.menu_submit').on('click', '#clear', function () {
     localStorage.clear();
     $('#cart-items').empty();
     $('#total').empty();
@@ -57,7 +60,6 @@ $(() => {
 
   $('#phoneNum').keyup(function () {
     phoneNumber = $('#phoneNum').val()
-    // console.log(phoneNumber);
     if (phoneNumber.match(/^\d{10}$/)) {
       $('#checkout').prop('disabled', false);
     } else {
@@ -72,21 +74,10 @@ $(() => {
     const cart = JSON.parse(localStorage.myCart);
     let total = Cart.subTotal;
 
-
-    // let menuID = [];
-    // for (const item of cart) {
-    //   menuID.push(item.id);
-    // }
-    // let subTotal = Cart.subTotal;
-    // let tax = Cart.tax;
+    views_manager.show('orderConfirm');
 
     $.post('/order', { cart, phoneNumber, total },  function(data) {
-      // $('.container').append(orderConfirmation.view(data));
-
       console.log('IN CART_INTERACTION--------', data);
     })
-    // $.post('/order-confirmation', { phoneNumber },  function(data) {
-    //   console.log('IN CART_INTERACTION--------', data);
-    // })
   })
 })

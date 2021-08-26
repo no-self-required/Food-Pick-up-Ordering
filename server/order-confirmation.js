@@ -1,5 +1,5 @@
-const accountSid = 'AC8fff9785a0630a0f17524ceb3ad56414';
-const authToken = 'd482bbf6cfb2bfaa75f65bbc81ea773e'
+const accountSid = process.env.TWILIO_ACCOUNT_SID;
+const authToken = process.env.TWILIO_AUTH_TOKEN;
 
 const client = require('twilio')(accountSid, authToken);
 
@@ -12,17 +12,31 @@ module.exports = (db) => {
     console.log('IN ORDER-CONFIRMATION.JS POST--------', req.body);
     let prepTime = req.body.Body;
     console.log("PREP TIME = ", prepTime)
-    console.log("phone number = ", req.body.phoneNumber)
 
-    client.messages
+    db.query(`
+    SELECT phone
+    FROM orders
+    ORDER BY order_time DESC
+    LIMIT 1;
+    `)
+    .then(data => {
+      client.messages
       .create({
-        body: 'Your order has been accepted',
+        body: `Your order has been accepted. It will take ${prepTime} minutes`,
         messagingServiceSid: 'MG2c7c90f5bbb2eba4c7bfcfde64d81397',
         from: '+17147092156',
-        to: `+1${req.body.phoneNumber}` //client num
+        to: `+1${data.rows[0].phone}` //client num
       })
-      .then(message => res.send(`The message to: ${message.to} was sent `))
-
+      setTimeout(function(){
+        client.messages
+          .create({
+            body: `Your order is complete!`,
+            messagingServiceSid: 'MG2c7c90f5bbb2eba4c7bfcfde64d81397',
+            from: '+17147092156',
+            to: `+1${data.rows[0].phone}` //client num
+          })
+      }, 10000);
+    })
   });
   return router;
 };

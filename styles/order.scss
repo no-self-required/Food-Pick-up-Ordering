@@ -1,0 +1,18 @@
+#orderBody {
+  display: flex;
+  height: 1080px;
+  justify-content: center;
+  align-items: center;
+}
+
+#orderStatus {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: solid 2px black;
+  width: 20em;
+  height: 20em;
+}
+
+

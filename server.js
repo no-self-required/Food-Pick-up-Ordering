@@ -1,6 +1,7 @@
 // load .env data into process.env
 require('dotenv').config();
-
+// require('dotenv').config({ path: './twilio.env' })
+// require('twilio.env').config()
 
 // Web server config
 const PORT = process.env.PORT || 8080;
@@ -8,7 +9,7 @@ const ENV = process.env.ENV || "development";
 
 const http = require('http');
 const express = require("express");
-const session = require('express-session');
+// const session = require('express-session');
 const MessagingResponse = require('twilio').twiml.MessagingResponse;
 
 const bodyParser = require("body-parser");
@@ -28,9 +29,9 @@ db.connect();
 // 'dev' = Concise output colored by response status for development use.
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
 app.use(morgan('dev'));
-app.use(session({
-  secret: 'secret'
-}))
+// app.use(session({
+//   secret: 'secret'
+// }))
 
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({
@@ -51,7 +52,7 @@ app.use(express.static("public"));
 const usersRoutes = require("./server/users.js");
 const orderRoutes = require("./server/order.js");
 const loginRoutes = require("./server/login-page.js");
-
+const orderConfirmationRoutes = require("./server/order-confirmation.js");
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // app.use("/api/users", usersRoutes(db));
@@ -59,6 +60,7 @@ const loginRoutes = require("./server/login-page.js");
 app.use("/users", usersRoutes(db));
 app.use("/order", orderRoutes(db));
 app.use("/login", loginRoutes(db));
+app.use("/order-confirmation", orderConfirmationRoutes(db));
 // Note: mount other resources here, using the same pattern above
 
 // Home page
@@ -67,23 +69,6 @@ app.use("/login", loginRoutes(db));
 app.get("/", (req, res) => {
   res.render('index');
 });
-
-// app.post('/sms', (req, res) => {
-//   const twiml = new MessagingResponse();
-
-//   twiml.message('The Robots are coming! Head for the hills!');
-
-//   res.writeHead(200, {'Content-Type': 'text/xml'});
-//   res.end(twiml.toString());
-// });
-
-// http.createServer(app).listen(1337, () => {
-//   console.log('Express server listening on port 1337');
-// });
-
-// app.get('/order-confirmation', (req, res) => {
-//   res.render('order_status');
-// });
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

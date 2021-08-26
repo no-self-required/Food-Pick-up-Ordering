@@ -31,7 +31,7 @@ $(() => {
   `);
 
   window.$cartInteraction = $cartInteraction;
-  $('#cart').append($cartInteraction);
+  $('.cart_container').append($cartInteraction);
 
   //display cart items even after refresh the page
   let cart = localStorage.getItem('myCart');
@@ -62,7 +62,6 @@ $(() => {
 
   $('#phoneNum').keyup(function () {
     phoneNumber = $('#phoneNum').val()
-    // console.log(phoneNumber);
     if (phoneNumber.match(/^\d{10}$/)) {
       $('#checkout').prop('disabled', false);
     } else {
@@ -77,14 +76,9 @@ $(() => {
     const cart = JSON.parse(localStorage.myCart);
     let total = Cart.subTotal;
 
-    let menuID = [];
-    for (const item of cart) {
-      menuID.push(item.id);
-    }
-    // let subTotal = Cart.subTotal;
-    // let tax = Cart.tax;
+    views_manager.show('orderConfirm');
 
-    $.post('/order', { menuID, phoneNumber, total },  function(data) {
+    $.post('/order', { cart, phoneNumber, total },  function(data) {
       console.log('IN CART_INTERACTION--------', data);
     })
   })

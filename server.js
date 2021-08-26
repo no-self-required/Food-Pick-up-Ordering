@@ -8,6 +8,7 @@ const ENV = process.env.ENV || "development";
 
 const http = require('http');
 const express = require("express");
+const session = require('express-session');
 const MessagingResponse = require('twilio').twiml.MessagingResponse;
 
 const bodyParser = require("body-parser");
@@ -27,6 +28,9 @@ db.connect();
 // 'dev' = Concise output colored by response status for development use.
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
 app.use(morgan('dev'));
+app.use(session({
+  secret: 'secret'
+}))
 
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({
@@ -47,7 +51,7 @@ app.use(express.static("public"));
 const usersRoutes = require("./server/users.js");
 const orderRoutes = require("./server/order.js");
 const loginRoutes = require("./server/login-page.js");
-
+const orderConfirmationRoutes = require("./server/order-confirmation.js");
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // app.use("/api/users", usersRoutes(db));
@@ -55,6 +59,7 @@ const loginRoutes = require("./server/login-page.js");
 app.use("/users", usersRoutes(db));
 app.use("/order", orderRoutes(db));
 app.use("/login", loginRoutes(db));
+app.use("/order-confirmation", orderConfirmationRoutes(db));
 // Note: mount other resources here, using the same pattern above
 
 // Home page

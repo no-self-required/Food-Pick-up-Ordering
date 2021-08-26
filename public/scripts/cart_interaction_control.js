@@ -52,7 +52,7 @@ $(() => {
     localStorage.clear();
     $('#cart-items').empty();
     $('#total').empty();
-    // window.Cart.subTotal = 0;
+    window.Cart.subTotal = 0;
   });
 
   //add phone number interation

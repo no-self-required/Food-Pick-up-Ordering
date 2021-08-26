@@ -35,6 +35,7 @@ module.exports = (db) => {
         });
       })
       // .then( 1st twilio sms )
+      // .then(data => console.log('TO TWILIO', data.rows.phoneNumber))
       .catch(err => { console.log(err) });
   }
 
@@ -48,3 +49,12 @@ module.exports = (db) => {
   });
   return router;
 };
+
+    // client.messages
+    // .create({
+    //    body: 'Accept order? Reply with prep time to accept.',
+    //    messagingServiceSid: 'MG2c7c90f5bbb2eba4c7bfcfde64d81397',
+    //    from: '+17147092156',
+    //    to: `+17052415272` //restaurant number (my num)
+    //  })
+    // .then(message => res.send(`The message to: ${message.to} was sent `))

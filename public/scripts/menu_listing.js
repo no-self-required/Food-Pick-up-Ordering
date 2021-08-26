@@ -8,9 +8,9 @@ $(() => {
           <img src="${menu_items.image}">
         </section>
         <section class="menu-listing_details">
-          <p class="menu-listing_name">name: ${menu_items.name}</p>
-          <p class="menu-listing_description">description: ${menu_items.description}</p>
-          <p class="menu-listing_price">price: ${menu_items.price}</p>
+          <p class="menu-listing_name">${menu_items.name}</p>
+          <p class="menu-listing_description">${menu_items.description}</p>
+          <p class="menu-listing_price">$${menu_items.price}</p>
         </section>
       </div>
     `

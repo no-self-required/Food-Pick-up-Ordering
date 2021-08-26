@@ -11,7 +11,7 @@ html {
 
 #container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: flex-start;
   background-color: white;
   width: 90%;
@@ -20,3 +20,23 @@ html {
   border-radius: 15px;
 }
 
+.restaurant-title {
+  img{
+    display: block;
+    margin: auto;
+    margin-top: 20px
+  }
+
+  p {
+    justify-content: center;
+    display: flex;
+    text-align: center;
+    font-family: 'Syncopate', sans-serif;
+    color: black;
+  }
+}
+
+#menu-cart {
+  display: flex;
+  border-top: solid gray;
+}

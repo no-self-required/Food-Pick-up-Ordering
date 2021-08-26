@@ -9,7 +9,7 @@ $(() => {
     for (const item of arr) {
       total += parseFloat(item.price);
 
-      $('#cart-items').append(inCartList.addItem(item));
+      $('.cart_container').append(inCartList.addItem(item));
     }
   }
 

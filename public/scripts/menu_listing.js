@@ -43,7 +43,9 @@ $(() => {
       cart.push(data[0]);
       localStorage.setItem('myCart', JSON.stringify(cart));
       $('#cart-items').append(inCartList.addItem(data[0]));
-      Cart.calculateTotal(data[0].price);
+      Cart.calculateSubTotal(data[0].price);
+      Cart.calculateTax();
+      Cart.calculateTotal();
     });
   })
 

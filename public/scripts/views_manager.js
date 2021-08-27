@@ -1,6 +1,6 @@
 $(() => {
 
-  const $main = $('.cart_container');
+  const $main = $('.main-container');
 
   window.views_manager = {};
 

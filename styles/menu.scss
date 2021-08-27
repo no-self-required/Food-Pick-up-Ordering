@@ -61,6 +61,7 @@ img {
   right: 0;
   background-color: white;
   font-family: 'Syncopate', sans-serif;
+  height: fit-content;
 
   #phoneNum {
     margin-bottom: 20px;
@@ -82,6 +83,7 @@ img {
     display: flex;
     flex-direction: row;
   }
+
   .cart-left-column {
     order: 1;
     flex-grow: 1;
@@ -94,14 +96,23 @@ img {
   }
 }
 
-// <div class="menu-listing" data-id="${menu_items.id}">
-// <section class="menu-listing_image">
-//   <img src="${menu_items.image}">
-// </section>
-// <section class="menu-listing_details">
-//   <p class="menu-listing_name">name: ${menu_items.name}</p>
-//   <p class="menu-listing_description">description: ${menu_items.description}</p>
-//   <p class="menu-listing_price">price: ${menu_items.price}</p>
-// </section>
-// </div>
-// `
+.sub-total {
+  border-top: 1px solid darkgray;
+  padding-top: 20px;
+  font-size: smaller;
+}
+
+.tax {
+  font-size: smaller;
+}
+
+.total {
+  font-weight: 600;
+  color: rgb(82, 79, 79);
+}
+
+#cart:hover {
+  box-shadow:10px 10px 0px 0px rgb(202, 213, 230);
+}
+
+

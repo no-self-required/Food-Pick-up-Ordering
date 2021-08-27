@@ -10,7 +10,7 @@ $(() => {
     `)
   window.$orderConfirmation = $orderConfirmation;
 
-    $('.cart_container').on('click', '#clear', function () {
+    $('.main-container').on('click', '#clear', function () {
     localStorage.clear();
     $('$cartInteraction #cart-items').empty();
     $('#total').empty();

@@ -32,6 +32,7 @@ $(() => {
 
 
   renderCart();
+  window.Cart = Cart;
   window.Cart.calculateTotal = calculateTotal;
   window.Cart.renderCart = renderCart;
 });

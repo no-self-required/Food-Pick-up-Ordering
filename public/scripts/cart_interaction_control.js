@@ -51,7 +51,7 @@ $(() => {
   $('#clear').on('click', function () {
     localStorage.clear();
     $('#cart-items').empty();
-    $('#total').empty();
+    $('#sub-total').empty();
     window.Cart.subTotal = 0;
   });
 

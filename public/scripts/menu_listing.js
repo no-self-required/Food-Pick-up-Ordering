@@ -21,7 +21,6 @@ $(() => {
   const loadMenu = function () {
     $.ajax('/users', { method: 'GET' })
     .then(function (menu) {
-      // console.log('MENU-----', menu);
       for (let item of menu) {
         $('.menu-container').append(createMenu(item));
       }

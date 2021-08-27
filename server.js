@@ -50,7 +50,6 @@ app.use(express.static("public"));
 // const widgetsRoutes = require("./routes/widgets");
 const usersRoutes = require("./server/users.js");
 const orderRoutes = require("./server/order.js");
-const loginRoutes = require("./server/login-page.js");
 const orderConfirmationRoutes = require("./server/order-confirmation.js");
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -58,7 +57,6 @@ const orderConfirmationRoutes = require("./server/order-confirmation.js");
 // app.use("/api/widgets", widgetsRoutes(db));
 app.use("/users", usersRoutes(db));
 app.use("/order", orderRoutes(db));
-app.use("/login", loginRoutes(db));
 app.use("/order-confirmation", orderConfirmationRoutes(db));
 // Note: mount other resources here, using the same pattern above
 

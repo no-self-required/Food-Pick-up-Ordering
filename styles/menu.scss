@@ -115,4 +115,7 @@ img {
   box-shadow:10px 10px 0px 0px rgb(202, 213, 230);
 }
 
-
+.cart-wrapper {
+  display: flex;
+  justify-content: space-between;
+}

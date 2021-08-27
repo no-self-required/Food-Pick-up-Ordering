@@ -21,14 +21,13 @@ $(() => {
   const loadMenu = function () {
     $.ajax('/users', { method: 'GET' })
     .then(function (menu) {
-      // console.log('MENU-----', menu);
       for (let item of menu) {
-        $('.menu-container').append(createMenu(item));
+        $('#menu').append(createMenu(item));
       }
     });
   }
 
-  $('.menu-container').on('click', '.menu-listing', function () {
+  $('#menu').on('click', '.menu-listing', function () {
 
     let menuID = $(this).attr("data-id");
 

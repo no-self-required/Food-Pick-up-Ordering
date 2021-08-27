@@ -1,16 +1,18 @@
 $(() => {
 
   const $orderConfirmation = $(`
+        <center>
         <div class="inner-container">
           <h1>Thank you for your order</h1>
         </div>
         <form class="confirm">
-          <button id="clear">Confirm</button>
+          <button id="clear" class="btn btn-success">Confirm</button>
         </form>
+        </center>
     `)
   window.$orderConfirmation = $orderConfirmation;
 
-    $('.cart_container').on('click', '#clear', function () {
+    $('.main-container').on('click', '#clear', function () {
     localStorage.clear();
     $('$cartInteraction #cart-items').empty();
     $('#total').empty();
@@ -18,5 +20,13 @@ $(() => {
     views_manager.show('start');
   })
 
-
 });
+
+// const $orderConfirmation = function($(`
+// <div class="inner-container">
+//   <h1>Thank you for your order</h1>
+// </div>
+// <form class="confirm">
+//   <button id="clear">Confirm</button>
+// </form>
+// `)

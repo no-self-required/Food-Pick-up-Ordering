@@ -1,9 +1,11 @@
 $(() => {
 
   const $menu = $(`
-    <div class="menu-container">
+
+    <div id="menu" class="col">
     </div>
+
   `);
   window.$menu = $menu;
-  $('.cart_container').append($menu);
+  $('#menu-cart').append($menu);
 });

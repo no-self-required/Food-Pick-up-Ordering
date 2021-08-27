@@ -3,11 +3,6 @@ $(() => {
 
   function addItem(menu_items) {
 
-    if (!menu_items) {
-      return `
-        <center><h3>Please add item</h3></center>
-      `
-    }
     return `
       <div class="cart-wrapper">
         <div class="cart-left-column">

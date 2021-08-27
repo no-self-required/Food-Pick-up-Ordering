@@ -1,21 +1,6 @@
 $(() => {
 
   const $cartInteraction = $(`
-    <form class="added-menu-items">
-      <div id="cart-items">
-
-      </div>
-      <div class="cart-wrapper">
-        <div class="cart-left-column">
-          <p class="sub-total">Sub Total</p>
-          <p class="tax">Tax(13%)</p>
-          <p class="total">Total</p>
-        </div>
-        <div class="cart-right-column">
-          <p class="sub-total" id="sub-total"></p>
-          <p class="tax" id="tax"></p>
-          <p class="total" id="total"></p>
-        </div>
       </div>
           <div>
             <label for="phone">Phone number:</label>
@@ -27,11 +12,34 @@ $(() => {
         <div class="menu-submit">
         <button type="submit" id="clear" class="btn btn-secondary">Clear Cart</button>
       </div>
-    </form>
   `);
 
+  const $confirmationCart = $(`
+  <form class="added-menu-items">
+    <div id="cart-items">
+
+    </div>
+    <div class="cart-wrapper">
+      <div class="cart-left-column">
+        <p class="sub-total">Sub Total</p>
+        <p class="tax">Tax(13%)</p>
+        <p class="total">Total</p>
+      </div>
+      <div class="cart-right-column">
+        <p class="sub-total" id="sub-total"></p>
+        <p class="tax" id="tax"></p>
+        <p class="total" id="total"></p>
+      </div>
+    </div>
+  </form>
+`);
+
   window.$cartInteraction = $cartInteraction;
-  $('.cart_container').append($cartInteraction);
+  window.$confirmationCart = $confirmationCart;
+
+  $('#cart').append($confirmationCart);
+  $('.added-menu-items').append($cartInteraction);
+
 
   //display cart items even after refresh the page
   let cart = localStorage.getItem('myCart');

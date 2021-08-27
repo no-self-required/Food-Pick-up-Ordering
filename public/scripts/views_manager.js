@@ -1,20 +1,22 @@
 $(() => {
 
-  const $main = $('.cart_container');
-
+  const $main = $('.main-container');
+  const $container = $('.container');
   window.views_manager = {};
 
   window.views_manager.show = function(item) {
-    $cartInteraction.detach();
+    $cartView.detach();
+    // $confirmCart.detach();
     $menu.detach();
     $orderConfirmation.detach();
 
     switch(item) {
       case 'orderConfirm':
-        $orderConfirmation.appendTo($main);
+        $orderConfirmation.appendTo($container);
+        // $confirmCart.appendTo($container);
         break;
       case 'start':
-        $cartInteraction.appendTo($main)
+        $cartView.appendTo($main)
         $menu.appendTo($main)
         break;
       case 'error':

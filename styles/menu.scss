@@ -11,8 +11,8 @@
   border-radius: 10px;
   background-color: white;
   flex-wrap: wrap;
-  font-family: 'Syncopate', sans-serif;
-  font-size:smaller;
+  font-family: "Syncopate", sans-serif;
+  font-size: smaller;
   flex-grow: 2;
 }
 
@@ -20,7 +20,7 @@
   margin: 15px;
   height: auto;
   display: flex;
-  flex-direction:column-reverse;
+  flex-direction: column-reverse;
   border-color: rgb(196, 192, 192);
   border-radius: 10px;
   width: 25%;
@@ -32,11 +32,11 @@
 }
 
 .menu-listing:hover {
-  box-shadow:10px 10px 0px 0px rgb(202, 213, 230);
+  box-shadow: 10px 10px 0px 0px rgb(202, 213, 230);
 }
 
 .menu-listing_details {
-  order: 1
+  order: 1;
 }
 
 .menu-listing_image {
@@ -49,7 +49,6 @@ img {
   border-radius: 10px;
 }
 
-
 #cart {
   height: auto;
   border-radius: 10px;
@@ -60,7 +59,7 @@ img {
   margin: 20px;
   right: 0;
   background-color: white;
-  font-family: 'Syncopate', sans-serif;
+  font-family: "Syncopate", sans-serif;
   height: fit-content;
 
   #phoneNum {
@@ -112,7 +111,7 @@ img {
 }
 
 #cart:hover {
-  box-shadow:10px 10px 0px 0px rgb(202, 213, 230);
+  box-shadow: 10px 10px 0px 0px rgb(202, 213, 230);
 }
 
 .cart-wrapper {

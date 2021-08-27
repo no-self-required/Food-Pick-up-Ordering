@@ -6,14 +6,12 @@ $(() => {
 
   window.views_manager.show = function(item) {
     $cartView.detach();
-    // $confirmCart.detach();
     $menu.detach();
     $orderConfirmation.detach();
 
     switch(item) {
       case 'orderConfirm':
         $orderConfirmation.appendTo($container);
-        // $confirmCart.appendTo($container);
         break;
       case 'start':
         $cartView.appendTo($main)

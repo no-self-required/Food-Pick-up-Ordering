@@ -2,7 +2,6 @@ $(() => {
   window.inCartList = {};
 
   function addItem(menu_items) {
-
     return `
       <div class="cart-wrapper">
         <div class="cart-left-column">
@@ -13,7 +12,7 @@ $(() => {
         </div>
 
       </div>
-    `
+    `;
   }
   window.inCartList.addItem = addItem;
 });

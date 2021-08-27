@@ -15,14 +15,8 @@ $(() => {
   window.Cart = { subTotal };
 
   function calculateSubTotal(price) {
-    // console.log("cart.SubTotal:", Cart.subTotal + parseFloat(price))
     Cart.subTotal = parseFloat(price) + parseFloat(Cart.subTotal.toString());
-
-    // Cart.tax = parseFloat(price) + parseFloat(Cart.tax.toString());
-    // Cart.total =  Cart.subTotal + Cart.tax;
     $('#sub-total').text('$' + parseFloat(Cart.subTotal).toFixed(2));
-    // $('#tax').text(parseFloat(Cart.tax));
-    // $('#total').text(parseFloat(Cart.total));
   }
 
   function calculateTax() {

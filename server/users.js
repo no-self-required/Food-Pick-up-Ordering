@@ -5,21 +5,22 @@
  * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
  */
 
-const express = require('express');
-const router  = express.Router();
+const express = require("express");
+const router = express.Router();
 
 module.exports = (db) => {
-  router.get('/', (req, res) => {
-
+  router.get("/", (req, res) => {
     db.query(`SELECT * FROM menu_items;`)
-      .then(data => {
+      .then((data) => {
         const menu = data.rows;
         res.json(menu);
       })
-      .catch(err => { res.send(err.message) });
+      .catch((err) => {
+        res.send(err.message);
+      });
   });
 
-  router.post('/', (req, res) => {
+  router.post("/", (req, res) => {
     const queryParams = [];
 
     let queryString = `SELECT * FROM menu_items`;
@@ -31,14 +32,13 @@ module.exports = (db) => {
     console.log(req.sessionID);
 
     db.query(queryString, queryParams)
-      .then(data => res.send(data.rows))
-      .catch(err => res.send(err.message))
-
+      .then((data) => res.send(data.rows))
+      .catch((err) => res.send(err.message));
   });
 
-  router.post('/checkout', (req, res) => {
-    console.log('DATA IN ROUNTER', req.body);
-  })
+  router.post("/checkout", (req, res) => {
+    console.log("DATA IN ROUNTER", req.body);
+  });
 
   return router;
 };

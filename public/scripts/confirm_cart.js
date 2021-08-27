@@ -1,5 +1,4 @@
 $(() => {
-
   const $confirmCart = $(`
       <div id="confirmcart" class="col">
         <h3>Cart</h3>
@@ -7,5 +6,5 @@ $(() => {
     `);
 
   window.$confirmCart = $confirmCart;
-  $('#menu-cart').append($confirmCart);
-})
+  $("#menu-cart").append($confirmCart);
+});

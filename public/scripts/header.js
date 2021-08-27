@@ -1,5 +1,4 @@
 $(() => {
-
   const $header = $(`
       <div class="Oki-login">
         <div class="pic-login">
@@ -11,8 +10,8 @@ $(() => {
           </form>
         </div>
       </div>
-    `)
+    `);
   window.$header = $header;
 
-  $('header').append($header);
-})
+  $("header").append($header);
+});

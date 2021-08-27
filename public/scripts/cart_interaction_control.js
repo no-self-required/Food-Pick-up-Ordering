@@ -7,14 +7,14 @@ $(() => {
       </div>
       <div class="cart-wrapper">
         <div class="cart-left-column">
-          <p>Sub Total</p>
-          <p>Tax(13%)</p>
-          <p>Total</p>
+          <p class="sub-total">Sub Total</p>
+          <p class="tax">Tax(13%)</p>
+          <p class="total">Total</p>
         </div>
         <div class="cart-right-column">
-          <div id="sub-total"></div>
-          <div id="tax"></div>
-          <div id="total"></div>
+          <p class="sub-total" id="sub-total"></p>
+          <p class="tax" id="tax"></p>
+          <p class="total" id="total"></p>
         </div>
       </div>
           <div>
@@ -37,21 +37,23 @@ $(() => {
   let cart = localStorage.getItem('myCart');
   cart = JSON.parse(cart);
 
-  // if (cart) {
-  //   for (const item of cart) {
-  //     $('#cart-items').append(inCartList.addItem(item));
-  //   }
-  //   Cart.renderCart();
-  // } else {
-  //   $('#cart-items').empty();
-  //   Cart.renderCart();
-  // }
+  if (cart) {
+    for (const item of cart) {
+      console.log("what is in my cart:", cart)
+      $('#cart-items').append(inCartList.addItem(item));
+    }
+    Cart.calculateSubTotal(0);
+    Cart.calculateTax();
+    Cart.calculateTotal();
+  }
 
   //clear button interaction
   $('#clear').on('click', function () {
     localStorage.clear();
     $('#cart-items').empty();
+    $('#sub-total').empty();
     $('#total').empty();
+    $('#tax').empty();
     window.Cart.subTotal = 0;
   });
 

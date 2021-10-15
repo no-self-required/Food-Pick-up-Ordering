@@ -1,7 +1,7 @@
 # Food Pick-up ordering
 A food ordering experience for a single restaurant. Users can pick dishes and place an order for pick-up. The client will receive a notification via SMS when their order is ready.
 
-# Screenshot
+# Preview
 !["Home"](https://raw.githubusercontent.com/no-self-required/Food-Pick-up-Ordering/master/docs/okihomepage.png)
 
 # Dependencies
